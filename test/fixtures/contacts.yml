@@ -4,6 +4,7 @@ one:
   name: MyString
   position: MyString
   phone: MyString
+  ramal: MyString
   email: MyString
   business_id: 1
 
@@ -11,5 +12,6 @@ two:
   name: MyString
   position: MyString
   phone: MyString
+  ramal: MyString
   email: MyString
   business_id: 1

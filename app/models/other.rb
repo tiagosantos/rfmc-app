@@ -1,3 +1,3 @@
 class Other < ActiveRecord::Base
-	belong_to :businesses
+	belongs_to :business
 end
