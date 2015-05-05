@@ -5,6 +5,14 @@ class BusinessesController < ApplicationController
   # GET /businesses.json
   def index
     @businesses = Business.all
+    respond_to do |format|
+    format.html
+    format.csv do
+      headers['Content-Disposition'] = "attachment; filename=\"empresas.csv\""
+      headers['Content-Type'] ||= 'text/csv'
+    end
+  end
+  @contact = Contact.all
   end
 
   # GET /businesses/1

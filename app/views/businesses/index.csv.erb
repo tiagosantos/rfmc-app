@@ -1,0 +1,5 @@
+<%- headers = ['Razão Social', 'Apelido', 'Segmento', 'CNPJ', 'Inscrição Estadual', 'Endereço', 'Nº', 'Complemento', 'Bairro', 'Cidade', 'CEP', 'UF', 'País', 'Telefone 1', 'Telefone 2', 'FAX', 'Email', 'Site', 'Criado em', 'Atualizado em'] -%>
+<%= CSV.generate_line headers %>
+<%- @businesses.each do |business| -%>
+  <%= CSV.generate_line([business.corporate_name, business.nickname, business.segment, business.cnpj, business.state_registration, business.address, business.number, business.complement, business.district, business.city, business.cep, business.uf, business.country, business.phone1, business.phone2, business.fax, business.email, business.url, business.created_at, business.updated_at]) %>
+<%- end -%>

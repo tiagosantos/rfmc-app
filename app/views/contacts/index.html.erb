@@ -1,32 +1,41 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Listing Contacts</h1>
-
-<table>
+<h1><i class="fa fa-users"></i> Contatos</h1>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Position</th>
-      <th>Phone</th>
+      <th>#</th>
+      <th>Nome</th>
+      <th>Cargo</th>
+      <th>Telefone</th>
       <th>Ramal</th>
       <th>Email</th>
-      <th>Business</th>
-      <th colspan="3"></th>
+      <th>Empresa</th>
+      <th></th>
     </tr>
   </thead>
 
   <tbody>
     <% @contacts.each do |contact| %>
       <tr>
+        <td><a href="/contacts/<%= contact.id %>"><%= contact.id %></a></td>
         <td><%= contact.name %></td>
         <td><%= contact.position %></td>
         <td><%= contact.phone %></td>
         <td><%= contact.ramal %></td>
-        <td><%= contact.email %></td>
-        <td><%= contact.business_id %></td>
-        <td><%= link_to 'Show', contact %></td>
-        <td><%= link_to 'Edit', edit_contact_path(contact) %></td>
-        <td><%= link_to 'Destroy', contact, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><a href="mailto:<%= contact.email %>"><%= contact.email %></td>
+        <td><%= contact.business.nickname %></td>
+        <td>        <div class="dropdown">
+  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+    <i class="fa fa-cog"></i>
+    <span class="caret"></span>
+  </button><ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu4">
+  <li role="presentation"><!--<i class="fa fa-eye"></i>-->
+  <%= link_to 'Ver', contact %></li>
+  <li role="presentation"><!--<i class="fa fa-pencil-square-o">-->
+  </i> <%= link_to 'Editar', edit_contact_path(contact) %></li>
+  <li role="presentation" class="disabled"><!--<i class="fa fa-trash-o">-->
+  </i> <%= link_to 'Excluir', contact, method: :delete, data: { confirm: 'Você tem certeza?' } %></li>
+</ul>
+</div></td>
       </tr>
     <% end %>
   </tbody>
@@ -34,4 +43,6 @@
 
 <br>
 
-<%= link_to 'New Contact', new_contact_path %>
+<%= link_to new_contact_path, class: "btn btn-primary" do %>
+    <i class="fa fa-plus"></i> Novo Contato
+<% end %>

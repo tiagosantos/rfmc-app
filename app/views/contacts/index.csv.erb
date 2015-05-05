@@ -1,0 +1,5 @@
+<%- headers = ['Nome', 'Cargo', 'Telefone', 'Ramal', 'Email', 'Empresa'] -%>
+<%= CSV.generate_line headers %>
+<%- @contacts.each do |contact| -%>
+  <%= CSV.generate_line([contact.name, contact.position, contact.phone, contact.ramal, contact.email, contact.business.nickname]) %>
+<%- end -%>

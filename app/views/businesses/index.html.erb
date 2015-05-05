@@ -1,56 +1,61 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Listing Businesses</h1>
-
-<table>
+<h1><i class="fa fa-building-o"></i> Empresas</h1>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Corporate name</th>
-      <th>Nickname</th>
-      <th>Segment</th>
-      <th>Cnpj</th>
-      <th>State registration</th>
-      <th>Address</th>
-      <th>Number</th>
-      <th>Complement</th>
-      <th>District</th>
-      <th>City</th>
-      <th>Cep</th>
-      <th>Uf</th>
-      <th>Country</th>
-      <th>Phone1</th>
-      <th>Phone2</th>
-      <th>Fax</th>
+      <th>#</th>
+      <th>Apelido</th>
+      <th>Segmento</th>
+      <th>Contatos</th>
+      <th>Cidade</th>
+      <th>UF</th>
+      <th>País</th>
+      <th>Telefone</th>
       <th>Email</th>
-      <th>Url</th>
-      <th colspan="3"></th>
+      <th>Site</th>
+      <th></th>
     </tr>
   </thead>
 
   <tbody>
     <% @businesses.each do |business| %>
       <tr>
-        <td><%= business.corporate_name %></td>
+        <td> <a href="/businesses/<%= business.id %>"><%= business.id %></a></td>
         <td><%= business.nickname %></td>
         <td><%= business.segment %></td>
-        <td><%= business.cnpj %></td>
-        <td><%= business.state_registration %></td>
-        <td><%= business.address %></td>
-        <td><%= business.number %></td>
-        <td><%= business.complement %></td>
-        <td><%= business.district %></td>
+        <td>
+        <div class="dropdown">
+  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+    <i class="fa fa-users"></i>
+    <span class="caret"></span>
+  </button><ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu4">
+  <% business.contacts.each do |contact| %>
+  <li role="presentation"> 
+<a href="/contacts/<%= contact.id %>"><%= contact.name %> </a></li>
+<% end %>
+</ul>
+</div></td>
         <td><%= business.city %></td>
-        <td><%= business.cep %></td>
         <td><%= business.uf %></td>
         <td><%= business.country %></td>
         <td><%= business.phone1 %></td>
-        <td><%= business.phone2 %></td>
-        <td><%= business.fax %></td>
-        <td><%= business.email %></td>
-        <td><%= business.url %></td>
-        <td><%= link_to 'Show', business %></td>
-        <td><%= link_to 'Edit', edit_business_path(business) %></td>
-        <td><%= link_to 'Destroy', business, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+</td>
+        <td><a href="mailto:<%= business.email %>"><%= business.email %></a> </td>
+        <td><a href="http://<%= business.url %>" target="blank"><%= business.url %></a> </td>
+<td> 
+  <div class="dropdown">
+  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+    <i class="fa fa-cog"></i>
+    <span class="caret"></span>
+  </button><ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu4">
+  <li role="presentation"><!--<i class="fa fa-eye"></i>-->
+  <%= link_to 'Ver', business %></li>
+  <li role="presentation"><!--<i class="fa fa-pencil-square-o">-->
+  </i> <%= link_to 'Editar', edit_business_path(business) %></li>
+  <li role="presentation" class="disabled"><!--<i class="fa fa-trash-o">-->
+  </i> <%= link_to 'Excluir', business, method: :delete, data: { confirm: 'Você tem certeza?' } %></li>
+</ul>
+</div></td>
       </tr>
     <% end %>
   </tbody>
@@ -58,4 +63,8 @@
 
 <br>
 
-<%= link_to 'New Business', new_business_path %>
+<%= link_to new_business_path, class: "btn btn-primary" do %>
+    <i class="fa fa-plus"></i> Nova Empresa
+<% end %>
+
+

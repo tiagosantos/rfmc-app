@@ -1,41 +1,76 @@
 <%= form_for(@contact) do |f| %>
-  <% if @contact.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@contact.errors.count, "error") %> prohibited this contact from being saved:</h2>
-
-      <ul>
+<% if @contact.errors.any? %>
+<div id="error_explanation">
+   <h2><%= pluralize(@contact.errors.count, "error") %> prohibited this contact from being saved:</h2>
+   <ul>
       <% @contact.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+      <li><%= message %></li>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :name, "Nome" %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :position, "Cargo" %><br>
-    <%= f.text_field :position %>
-  </div>
-  <div class="field">
-    <%= f.label :phone, "Telefone" %><br>
-    <%= f.text_field :phone %>
-  </div>
-  <div class="field">
-    <%= f.label :ramal, "Ramal" %><br>
-    <%= f.text_field :ramal %>
-  </div>
-  <div class="field">
-    <%= f.label :email, "Email"%><br>
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :business_id, "Empresa" %><br>
-    <%= f.collection_select(:business_id, Business.all.order(:corporate_name), :id, :corporate_name)%>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+   </ul>
+</div>
 <% end %>
+<div class="row">
+   <div class="form-group">
+      <div class="col-md-6">
+         <%= f.label :name, 'Nome' %> <br>
+         <%= f.text_field :name, id:"name", class: "form-control"%>
+      </div>
+   </div>
+</div>
+<div class="row">
+   <div class="form-group">
+      <div class="col-md-6">
+         <%= f.label :position, 'Cargo' %> <br>
+         <%= f.text_field :position, id:"position", class: "form-control"%>
+      </div>
+   </div>
+</div>
+<div class="row">
+   <div class="form-group">
+      <div class="col-md-4">
+         <%= f.label :phone, 'Telefone' %> <br>
+         <%= f.text_field :phone, id:"phone", class: "form-control"%>
+      </div>
+      <div class="col-md-2">
+         <%= f.label :ramal, 'Ramal' %> <br>
+         <%= f.text_field :ramal, id:"ramal", class: "form-control"%>
+      </div>
+   </div>
+</div>
+<div class="row">
+   <div class="form-group">
+      <div class="col-md-4">
+         <%= f.label :email, 'Email' %> <br>
+         <%= f.text_field :email, id:"email", class: "form-control"%>
+      </div>
+      <div class="col-md-2">
+         <%= f.label :business_id, "Empresa" %><br>
+         <%= f.collection_select(:business_id, Business.all, :id, :nickname, { :prompt => "Selecione" }, {:class=>'form-control'})%>
+      </div>
+   </div>
+</div>
+<div class="row">
+   <div class="form-group">
+      <div class="col-md-6">
+         <%= f.label :other, 'Outras informações' %> <br>
+         <%= f.text_area :other, id:"other",:rows => 5, class: "form-control"%>
+      </div>
+   </div>
+</div>
+<div class="row">
+   <div class="form-group">
+      <div class="col-md-4">
+         <br>
+         <%= button_tag(type: 'submit', class: "btn btn-primary") do %>
+         <i class="fa fa-floppy-o"></i> Salvar
+         <% end %>
+      </div>
+   </div>
+</div>
+<div class="row">
+   <div class="form-group">
+      <div class="col-md-4">
+         <% end %>
+      </div>
+   </div>
+</div>

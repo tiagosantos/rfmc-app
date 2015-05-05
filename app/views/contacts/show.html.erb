@@ -1,34 +1,65 @@
 <p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @contact.name %>
-</p>
-
-<p>
-  <strong>Position:</strong>
-  <%= @contact.position %>
-</p>
-
-<p>
-  <strong>Phone:</strong>
-  <%= @contact.phone %>
-</p>
-
-<p>
-  <strong>Ramal:</strong>
-  <%= @contact.ramal %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @contact.email %>
-</p>
-
-<p>
-  <strong>Business:</strong>
-  <%= @contact.business_id %>
-</p>
-
-<%= link_to 'Edit', edit_contact_path(@contact) %> |
-<%= link_to 'Back', contacts_path %>
+<div class="row">
+   <div class="form-group">
+      <div class="col-md-6">
+         <label>Nome</label>
+         <input class="form-control" disabled="" value="<%= @contact.name%>">
+      </div>
+   </div>
+</div>
+<div class="row">
+   <div class="form-group">
+      <div class="col-md-6">
+         <label>Cargo</label>
+         <input class="form-control" disabled="" value="<%= @contact.position%>">
+      </div>
+   </div>
+</div>
+<div class="row">
+   <div class="form-group">
+      <div class="col-md-4">
+         <label>Telefone</label>
+         <input class="form-control" disabled="" value="<%= @contact.phone%>">
+      </div>
+      <div class="col-md-2">
+         <label>Ramal</label>
+         <input class="form-control" disabled="" value="<%= @contact.ramal%>">
+      </div>
+   </div>
+</div>
+<div class="row">
+   <div class="form-group">
+      <div class="col-md-4">
+         <label>Email</label>
+         <input class="form-control" disabled="" value="<%= @contact.email%>">
+      </div>
+      <div class="col-md-2">
+         <label>Empresa</label>
+         <input class="form-control" disabled="" value="<%= @contact.business.nickname%>">
+      </div>
+   </div>
+</div>
+<div class="row">
+   <div class="form-group">
+      <div class="col-md-6">
+         <label>Outras informações</label>
+         <textarea class="form-control" row="5" disabled="" value="<%= @contact.other%>"></textarea>
+      </div>
+   </div>
+</div>
+</div>
+<br>
+<div class="row">
+<div class="form-group">
+    <div class="col-md-1">
+<%= link_to edit_contact_path, class: "btn btn-warning" do %>
+    <i class="fa fa-pencil-square-o"></i> Editar
+<% end %>
+</div>
+<div class="col-md-1">
+<%= link_to contacts_path, class: "btn btn-default" do %>
+    <i class="fa fa-reply"></i> Voltar
+<% end %>
+</div>
+</div>
+</div>

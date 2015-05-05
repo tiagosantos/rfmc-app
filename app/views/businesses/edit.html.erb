@@ -1,6 +1,7 @@
-<h1>Editing Business</h1>
+<h1>Editando Empresa</h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @business %> |
-<%= link_to 'Back', businesses_path %>
+<%= link_to businesses_path, class: "btn btn-default" do %>
+    <i class="fa fa-reply"></i> Voltar
+<% end %>

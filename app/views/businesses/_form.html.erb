@@ -10,80 +10,138 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :corporate_name, "Razão Social" %><br>
-    <%= f.text_field :corporate_name %>
+  <div class="row">
+  <div class="form-group">
+     <div class="col-md-8">
+        <%= f.label :corporate_name, 'Razão Social' %> <br>
+        <%= f.text_field :corporate_name, id:"name", class: "form-control", :autofocus=>true %>
+     </div>
   </div>
-  <div class="field">
-    <%= f.label :nickname, "Apelido" %><br>
-    <%= f.text_field :nickname %>
   </div>
-  <div class="field">
-    <%= f.label :segment, "Ramo de atuação" %><br>
-    <%= f.text_field :segment %>
+  <div class="row">
+    <div class="form-group">
+     <div class="col-md-4">
+        <%= f.label :nickname, 'Apelido' %> <br>
+        <%= f.text_field :nickname, id:"Apelido", class: "form-control"%>
+     </div>
+     <div class="col-md-4">
+        <%= f.label :segment, 'Segmento' %> <br>
+        <%= f.text_field :segment, id:"Segmento", class: "form-control"%>
+     </div>
   </div>
-  <div class="field">
-    <%= f.label :cnpj, "CNPJ" %><br>
-    <%= f.text_field :cnpj %>
   </div>
-  <div class="field">
-    <%= f.label :state_registration, "Inscrição Estadual" %><br>
-    <%= f.text_field :state_registration %>
+  <div class="row">
+    <div class="form-group">
+     <div class="col-md-4">
+        <%= f.label :cnpj, 'CNPJ' %> <br>
+        <%= f.text_field :cnpj, id:"cnpj", class: "form-control"%>
+     </div>
+     <div class="col-md-4">
+        <%= f.label :state_registration, 'Inscrição Estadual' %> <br>
+        <%= f.text_field :state_registration, id:"state_registration", class: "form-control"%>
+     </div>
   </div>
-  <div class="field">
-    <%= f.label :address, "Endereço" %><br>
-    <%= f.text_field :address %>
   </div>
-  <div class="field">
-    <%= f.label :number, "Número" %><br>
-    <%= f.text_field :number %>
+  <div class="row">
+    <div class="form-group">
+     <div class="col-md-6">
+        <%= f.label :address, 'Endereço' %> <br>
+        <%= f.text_field :address, id:"address", class: "form-control"%>
+     </div>
+     <div class="col-md-2">
+        <%= f.label :number, 'Nº' %> <br>
+        <%= f.text_field :number, id:"number", class: "form-control"%>
+     </div>
   </div>
-  <div class="field">
-    <%= f.label :complement, "Complemeto" %><br>
-    <%= f.text_field :complement %>
   </div>
-  <div class="field">
-    <%= f.label :district, "Bairro" %><br>
-    <%= f.text_field :district %>
+  <div class="row">
+    <div class="form-group">
+     <div class="col-md-4">
+        <%= f.label :district, 'Bairro' %> <br>
+        <%= f.text_field :district, id:"district", class: "form-control"%>
+     </div>
+      <div class="col-md-4">
+        <%= f.label :city, 'Cidade' %> <br>
+        <%= f.text_field :city, id:"city", class: "form-control"%>
+     </div>
   </div>
-  <div class="field">
-    <%= f.label :city, "Cidade" %><br>
-    <%= f.text_field :city %>
   </div>
-  <div class="field">
-    <%= f.label :cep, "CEP" %><br>
-    <%= f.text_field :cep %>
+  <div class="row">
+    <div class="form-group">
+    <div class="col-md-5">
+        <%= f.label :complement, 'Complemeto' %> <br>
+        <%= f.text_field :complement, id:"complement", class: "form-control"%>
+     </div>
+     <div class="col-md-2">
+        <%= f.label :cep, 'CEP' %> <br>
+        <%= f.text_field :cep, id:"cep", class: "form-control"%>
+     </div>
+      <div class="col-md-1">
+        <%= f.label :uf, 'UF' %> <br>
+        <%= f.text_field :uf, id:"uf", class: "form-control"%>
+     </div>
   </div>
-  <div class="field">
-    <%= f.label :uf, "UF" %><br>
-    <%= f.text_field :uf %>
   </div>
-  <div class="field">
-    <%= f.label :country, "País" %><br>
-    <%= f.text_field :country %>
+  <div class="row">
+    <div class="form-group">
+    <div class="col-md-3">
+        <%= f.label :fax, 'FAX' %> <br>
+        <%= f.text_field :fax, id:"fax", class: "form-control"%>
+     </div>
+     <div class="col-md-5">
+        <%= f.label :country, 'País' %> <br>
+        <%= f.text_field :country, id:"country", class: "form-control"%>
+     </div>
   </div>
-  <div class="field">
-    <%= f.label :phone1, "Telefone Principal" %><br>
-    <%= f.text_field :phone1 %>
   </div>
-  <div class="field">
-    <%= f.label :phone2, "Telefone Secndário" %><br>
-    <%= f.text_field :phone2 %>
+  <div class="row">
+    <div class="form-group">
+    <div class="col-md-4">
+        <%= f.label :phone1, 'Telefone 1' %> <br>
+        <%= f.text_field :phone1, id:"phone1", class: "form-control"%>
+     </div>
+     <div class="col-md-4">
+        <%= f.label :phone2, 'Telefone 2' %> <br>
+        <%= f.text_field :phone2, id:"phone2", class: "form-control"%>
+     </div>
   </div>
-  <div class="field">
-    <%= f.label :fax, "Fax" %><br>
-    <%= f.text_field :fax %>
   </div>
-  <div class="field">
-    <%= f.label :email, "Email" %><br>
-    <%= f.text_field :email %>
+  <div class="row">
+    <div class="form-group">
+    <div class="col-md-4">
+        <%= f.label :email, 'Email' %> <br>
+        <%= f.text_field :email, id:"email", class: "form-control"%>
+     </div>
+     <div class="col-md-4">
+        <%= f.label :url, 'Site' %> <br>
+        <%= f.text_field :url, id:"url", class: "form-control"%>
+     </div>
   </div>
-  <div class="field">
-    <%= f.label :url, "Site" %><br>
-    <%= f.text_field :url %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <div class="row">
+   <div class="form-group">
+      <div class="col-md-8">
+         <%= f.label :other, 'Outras informações' %> <br>
+         <%= f.text_area :other, id:"other",:rows => 5, class: "form-control"%>
+      </div>
+   </div>
+</div>
+  <div class="row">
+  <div class="form-group">
+    <div class="col-md-4">
+    <br>
+        <%= button_tag(type: 'submit', class: "btn btn-primary") do %>
+ <i class="fa fa-floppy-o"></i> Salvar
 <% end %>
+     </div>
+  </div>
+  </div>
+  <div class="row">
+  <div class="form-group">
+    <div class="col-md-4">
+        <% end %>
+     </div>
+  </div>
+  </div>
+  
+

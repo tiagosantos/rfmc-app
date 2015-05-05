@@ -1,5 +1,7 @@
-<h1>New Business</h1>
+<h1>Nova Empresa</h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Back', businesses_path %>
+<%= link_to businesses_path, class: "btn btn-default" do %>
+    <i class="fa fa-reply"></i> Voltar
+<% end %>
