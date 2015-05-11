@@ -66,13 +66,14 @@
                 <div class="sidebar-nav navbar-collapse collapse">
                     <ul class="nav" id="side-menu">
                         <li class="sidebar-search">
-                            <div class="input-group custom-search-form">
-                                <input type="text" class="form-control" placeholder="Pesquisar...">
-                                <span class="input-group-btn">
-                                <button class="btn btn-default" type="button">
-                                    <i class="fa fa-search"></i>
+                            <div class="input-group custom-search-form form-group">
+                                <!--<input type="text" class="form-control" placeholder="Pesquisar...">-->
+                                <%= form_tag(businesses_path, :method => "get", id: "search-form") do %>
+  <%= text_field_tag :search, params[:search], placeholder: "", class: "form-control"  %>           <button class="btn btn-default" type="submit">
+                                    Pesquisar <i class="fa fa-search"></i>
                                 </button>
-                            </span>
+                                <% end %>
+                                
                             </div>
                             <!-- /input-group -->
                         </li>

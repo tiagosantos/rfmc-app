@@ -1,4 +1,5 @@
 class Contact < ActiveRecord::Base
 	belongs_to :business
-	has_many :others
+	validates :business_id, presence: true
+
 end

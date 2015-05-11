@@ -11,6 +11,11 @@ class BusinessesController < ApplicationController
       headers['Content-Disposition'] = "attachment; filename=\"empresas.csv\""
       headers['Content-Type'] ||= 'text/csv'
     end
+    if params[:search]
+      @businesses = Business.search(params[:search]).order("created_at DESC")
+    else
+      @businesses = Business.all.order('created_at DESC')
+    end
   end
   @contact = Contact.all
   end
